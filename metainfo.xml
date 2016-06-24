@@ -46,16 +46,6 @@
             </components>
 
 
-            <osSpecifics>
-              <osSpecific>
-                <osFamily>redhat6</osFamily>
-                <packages>
-                   <package><name>git</name></package>    
-                   <package><name>apache-maven-3.2*</name></package>                                           
-                </packages>
-              </osSpecific>
-              
-            </osSpecifics>
       	    <configuration-dependencies>
 	      <config-type>impala-ambari-config</config-type>      	   
       	    </configuration-dependencies>
