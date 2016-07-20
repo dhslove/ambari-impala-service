@@ -3,21 +3,22 @@ from resource_management import *
 from resource_management.core.base import Fail
 from resource_management.core.exceptions import ComponentIsNotRunning
 from subprocess import call
+from impala_base import ImpalaBase
 
-
-class ImpalaDaemon(Script):
+class ImpalaDaemon(ImpalaBase):
     #Call setup.sh to install the service
     def install(self, env):
 
         # Install packages listed in metainfo.xml
         self.install_packages(env)
-        self.installMongo(env)
+        self.installImpala(env)
         self.configure(env)
 
     def configure(self, env):
         import params
 
         env.set_params(params)
+        self.configureImpala(params)
 
 
     #Call start.sh to start the service

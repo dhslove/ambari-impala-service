@@ -11,7 +11,7 @@ class StateStore(ImpalaBase):
 
         # Install packages listed in metainfo.xml
         self.install_packages(env)
-        self.installMongo(env)
+        self.installImpala(env)
         self.configure(env)
 
     def configure(self, env):
@@ -25,7 +25,7 @@ class StateStore(ImpalaBase):
         import params
         self.configure(env)
 
-        self.create_hdfs_user(params.flink_user)
+        #self.create_hdfs_user(params.flink_user)
         cmd = 'service impala-state-store start'
         Execute('echo "Running cmd: ' + cmd + '"')
         Execute(cmd)

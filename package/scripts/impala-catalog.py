@@ -12,7 +12,7 @@ class ImpalaCatalog(ImpalaBase):
 
         # Install packages listed in metainfo.xml
         self.install_packages(env)
-        self.installMongo(env)
+        self.installImpala(env)
         self.configure(env)
 
     def configure(self, env):

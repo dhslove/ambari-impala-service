@@ -5,8 +5,8 @@
         <service>
             <name>IMPALA</name>
             <displayName>Impala</displayName>
-            <comment>impala config</comment>
-            <version>0.10.0</version>
+            <comment>an open source, analytic MPP database for Apache Hadoop that provides the fastest time-to-insight</comment>
+            <version>2.5.0</version>
             <components>
                 <component>
                   <name>IMPALA_STATE_STORE</name>
