@@ -58,6 +58,8 @@ add config info through webui
 ![Image](../master/screenshots/core-site.png?raw=true)
 ![Image](../master/screenshots/hdfs-site.png?raw=true)
 
+restart hadoop and restart impala
+
 #SUMMARY
 ![Image](../master/screenshots/summary.png?raw=true)
 
