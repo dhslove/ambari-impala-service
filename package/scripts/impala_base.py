@@ -39,7 +39,7 @@ class ImpalaBase(Script):
         Execute('echo "Running ' + cmd + '" as root')
         Execute(cmd)
         
-        cmd='cp /etc/hadoop/conf/hive-site.xml /etc/impala/conf'
+        cmd='cp /etc/hive/conf/hive-site.xml /etc/impala/conf'
         Execute('echo "Running ' + cmd + '" as root')
         Execute(cmd)
         
