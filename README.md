@@ -12,6 +12,16 @@ VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]
 sudo git clone https://github.com/cas-bigdatalab/ambari-impala-service.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/IMPALA        
 ```
 
+##impala repo
+```
+[cloudera-cdh5]
+# Packages for Cloudera's Distribution for Hadoop, Version 5, on RedHat	or CentOS 6 x86_64
+name=Cloudera's Distribution for Hadoop, Version 5
+baseurl=https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/5/
+gpgkey =https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera    
+gpgcheck = 1
+```
+
 ##Restart Ambari
 \#sandbox  
 service ambari restart
