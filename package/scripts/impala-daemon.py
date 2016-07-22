@@ -13,12 +13,15 @@ class ImpalaDaemon(ImpalaBase):
         self.install_packages(env)
         self.installImpala(env)
         self.configure(env)
-
+        import params
+        self.configureHDFS(params)
+        
     def configure(self, env):
         import params
 
         env.set_params(params)
         self.configureImpala(params)
+        
 
 
     #Call start.sh to start the service
