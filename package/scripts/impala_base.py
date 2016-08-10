@@ -32,14 +32,14 @@ class ImpalaBase(Script):
              content=Template("impala.j2"),
              mode=0644
             )
-            
+        self.configureHDFS(env)    
     def configureHDFS(self,env):
         
-        cmd='cp -rf /etc/hadoop/conf/*.xml /etc/impala/conf'
+        cmd='yes | cp -rf /etc/hadoop/conf/*.xml /etc/impala/conf'
         Execute('echo "Running ' + cmd + '" as root')
         Execute(cmd)
         
-        cmd='cp /etc/hive/conf/hive-site.xml /etc/impala/conf'
+        cmd='yes | cp /etc/hive/conf/hive-site.xml /etc/impala/conf'
         Execute('echo "Running ' + cmd + '" as root')
         Execute(cmd)
         

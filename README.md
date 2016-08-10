@@ -73,4 +73,8 @@ restart hadoop and restart impala
 #SUMMARY
 ![Image](../master/screenshots/summary.png?raw=true)
 
+#NOTICE
+- make sure your hive server normally
+- hdfs and hive conf file is sync to /etc/impala/conf
+
 
