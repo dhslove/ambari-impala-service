@@ -3,15 +3,16 @@ from resource_management import *
 
 
 class ImpalaBase(Script):
+    impala_packages = ['impala-server','impala-catalog','impala-state-store','impala-shell']
     #Call setup.sh to install the service
     def installImpala(self, env):
 
         # Install packages listed in metainfo.xml
         self.install_packages(env)
 
-        cmd = 'yum -y install  impala-server impala-catalog impala-state-store impala-shell'
-        Execute('echo "Running ' + cmd + '"')
-        Execute(cmd)
+        if self.impala_packages is not None and len(self.impala_packages):
+            for pack in self.impala_packages:
+                Package(pack)
         
         import params
         #init lib
