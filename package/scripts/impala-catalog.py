@@ -32,7 +32,12 @@ class ImpalaCatalog(ImpalaBase):
         cmd = 'service impala-catalog stop'
         Execute('echo "Running cmd: ' + cmd + '"')
         Execute(cmd)
-
+        
+    def restart(self,env):
+        cmd = 'service impala-catalog stop'
+        Execute('echo "Running cmd: ' + cmd + '"')
+        Execute(cmd, ignore_failures=True)
+        self.start(env)
     #Called to get status of the service using the pidfile
     def status(self, env):
         cmd = 'service impala-catalog status'

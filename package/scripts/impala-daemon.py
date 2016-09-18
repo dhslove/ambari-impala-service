@@ -23,7 +23,6 @@ class ImpalaDaemon(ImpalaBase):
         self.configureImpala(params)
         
 
-
     #Call start.sh to start the service
     def start(self, env):
         cmd = 'service impala-server start'
@@ -36,6 +35,12 @@ class ImpalaDaemon(ImpalaBase):
         Execute('echo "Running cmd: ' + cmd + '"')
         Execute(cmd)
 
+    def restart(self,env):
+        cmd = 'service impala-server stop'
+        Execute('echo "Running cmd: ' + cmd + '"')
+        Execute(cmd, ignore_failures=True)
+        self.start(env)
+        
     #Called to get status of the service using the pidfile
     def status(self, env):
         cmd = 'service impala-server status'
