@@ -1,8 +1,8 @@
 #An Ambari Service for Impala
 
 ##Support Version
-- Impala 2.5
-- HDP 2.2.8.0 based on Hadoop 2.6
+- Impala 2.6 +
+- Hadoop 2.6 +
 
 ##To download the Impala service folder, run below    
 
