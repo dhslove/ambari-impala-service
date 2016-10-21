@@ -1,0 +1,23 @@
+{
+  "services": [
+    {
+      "name": "IMPALA",
+      "identities": [
+        {
+          "name": "/smokeuser"
+        }
+      ],
+      "components": [
+        {
+          "name": "Impala_Catalog_Service"
+        },
+		{
+          "name": "Impala_State_Store"
+        },
+		{
+          "name": "Impala_Daemon"
+        }
+      ]
+    }
+  ]
+}

@@ -22,7 +22,6 @@ class StateStore(ImpalaBase):
 
     #Call start.sh to start the service
     def start(self, env):
-        import params
         self.configure(env)
 
         #self.create_hdfs_user(params.flink_user)
