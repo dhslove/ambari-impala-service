@@ -36,7 +36,7 @@
                   <name>IMPALA_DAEMON</name>
                   <displayName>Impala_Daemon</displayName>
                   <category>SLAVE</category>
-                  <cardinality>1</cardinality>
+                  <cardinality>1+</cardinality>
                   <commandScript>
                     <script>scripts/impala-daemon.py</script>
                     <scriptType>PYTHON</scriptType>
@@ -47,7 +47,7 @@
 
 
       	    <configuration-dependencies>
-	      <config-type>impala-ambari-config</config-type>      	   
+				<config-type>impala-ambari-config</config-type>      	   
       	    </configuration-dependencies>
         </service>
     </services>

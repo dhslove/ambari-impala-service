@@ -3,21 +3,31 @@
     {
       "name": "IMPALA",
       "identities": [
+	    {
+              "name": "impala_daemon",
+              "principal": {
+                "value": "${impala-env/impala_user}/_HOST@${realm}",
+                "type": "service",
+                "configuration": "impala-env/impala_principal_name"
+              },
+              "keytab": {
+                "file": "${keytab_dir}/impala.service.keytab",
+                "owner": {
+                  "name": "${impala-env/impala_user}",
+                  "access": "r"
+                },
+                "group": {
+                  "name": "${cluster-env/user_group}",
+                  "access": ""
+                },
+                "configuration": "impala-env/impala_keytab"
+              }
+        },
         {
           "name": "/smokeuser"
         }
-      ],
-      "components": [
-        {
-          "name": "Impala_Catalog_Service"
-        },
-		{
-          "name": "Impala_State_Store"
-        },
-		{
-          "name": "Impala_Daemon"
-        }
       ]
+      
     }
   ]
 }
