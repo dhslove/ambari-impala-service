@@ -28,11 +28,20 @@ class ImpalaBase(Script):
         Execute(cmd, ignore_failures=True)
     
     def configureImpala(self, env):
+        import params
+        if params.security_enabled:
+            cmd = format("{service_packagedir}/scripts/ktuntil_config.sh")
+            Execute('echo "Running ' + cmd + '" as root')
+            Execute(cmd, ignore_failures=True)
 
         File("/etc/default/impala",
              content=Template("impala.j2"),
              mode=0644
             )
+
+        Execute(format('mkdir -p {impala_scratch_dir}'))
+        Execute(format('chmod 777 {impala_scratch_dir}'))
+			
         self.configureHDFS(env)    
     def configureHDFS(self,env):
         

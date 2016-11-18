@@ -2,14 +2,16 @@ IMPALA_CATALOG_SERVICE_HOST={{impala_catalog_host}}
 IMPALA_STATE_STORE_HOST={{impala_state_store_host}}
 IMPALA_STATE_STORE_PORT=24000
 IMPALA_BACKEND_PORT=22000
-IMPALA_LOG_DIR=/var/log/impala
+IMPALA_LOG_DIR={{impala_log_dir}}
+IMPALA_SCRATCH_DIR={{impala_scratch_dir}}
+MEM_LIMIT={{mem_limit}}
 
 IMPALA_CATALOG_ARGS=" \
     -log_dir=${IMPALA_LOG_DIR} \
 	{% if security_enabled %}
     -kerberos_reinit_interval=60 \
     -principal=impala/{{current_host_name}}@EXAMPLE.COM \
-    -keytab_file=/etc/security/keytabs/impala.service.keytab \
+    -keytab_file=/etc/security/keytabs/impala-http.keytab \
 	{% endif %}
 	"
 IMPALA_STATE_STORE_ARGS=" \
@@ -18,11 +20,13 @@ IMPALA_STATE_STORE_ARGS=" \
 	{% if security_enabled %}
     -kerberos_reinit_interval=60 \
     -principal=impala/{{current_host_name}}@EXAMPLE.COM \
-    -keytab_file=/etc/security/keytabs/impala.service.keytab \
+    -keytab_file=/etc/security/keytabs/impala-http.keytab \
 	{% endif %}
 	"
 IMPALA_SERVER_ARGS=" \
     -log_dir=${IMPALA_LOG_DIR} \
+	--scratch_dirs=${IMPALA_SCRATCH_DIR} \
+	-mem_limit=${MEM_LIMIT} \
     -catalog_service_host=${IMPALA_CATALOG_SERVICE_HOST} \
     -state_store_port=${IMPALA_STATE_STORE_PORT} \
     -use_statestore \
@@ -31,7 +35,7 @@ IMPALA_SERVER_ARGS=" \
 	{% if security_enabled %}
     -kerberos_reinit_interval=60 \
     -principal=impala/{{current_host_name}}@EXAMPLE.COM \
-    -keytab_file=/etc/security/keytabs/impala.service.keytab \
+    -keytab_file=/etc/security/keytabs/impala-http.keytab \
 	{% endif %}
 	"
 

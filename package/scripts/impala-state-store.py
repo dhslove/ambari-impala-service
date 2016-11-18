@@ -16,9 +16,8 @@ class StateStore(ImpalaBase):
 
     def configure(self, env):
         import params
-
         env.set_params(params)
-
+        self.configureImpala(params)
 
     #Call start.sh to start the service
     def start(self, env):

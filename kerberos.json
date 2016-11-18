@@ -17,10 +17,30 @@
                   "access": "r"
                 },
                 "group": {
-                  "name": "${cluster-env/user_group}",
+                  "name": "${impala-env/user_group}",
                   "access": ""
                 },
                 "configuration": "impala-env/impala_keytab"
+              }
+        },
+		{
+              "name": "impala_http",
+              "principal": {
+                "value": "HTTP/_HOST@${realm}",
+                "type": "service",
+                "configuration": "impala-env/http_principal_name"
+              },
+              "keytab": {
+                "file": "${keytab_dir}/impala-http.service.keytab",
+				"owner": {
+                  "name": "${impala-env/impala_user}",
+                  "access": "r"
+                },
+                "group": {
+                  "name": "${impala-env/user_group}",
+                  "access": ""
+                },
+                "configuration": "impala-env/http_keytab"
               }
         },
         {
