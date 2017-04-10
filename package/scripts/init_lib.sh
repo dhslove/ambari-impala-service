@@ -33,7 +33,11 @@ ln -sf  `echo -e $impala_path'/hive/lib/hive-shims-common.jar /usr/lib/impala/li
 ln -sf  `echo -e $impala_path'/hive/lib/hive-shims-scheduler.jar /usr/lib/impala/lib/hive-shims-scheduler.jar' | tr -d '\r' | tr -d '?'`
 ln -sf  `echo -e $impala_path'/hive/lib/hive-shims.jar /usr/lib/impala/lib/hive-shims.jar' | tr -d '\r' | tr -d '?'` 
 ln -sf  `echo -e $impala_path'/zookeeper/zookeeper.jar /usr/lib/impala/lib/zookeeper.jar' | tr -d '\r' | tr -d '?'`
-
+ln -sf  `echo -e $impala_path'/hbase/lib/hbase-annotations.jar /usr/lib/impala/lib/hbase-annotations.jar' | tr -d '\r' | tr -d '?'`
+ln -sf  `echo -e $impala_path'/hbase/lib/hbase-client.jar /usr/lib/impala/lib/hbase-client.jar' | tr -d '\r' | tr -d '?'`
+ln -sf  `echo -e $impala_path'/hbase/lib/hbase-common.jar /usr/lib/impala/lib/hbase-common.jar' | tr -d '\r' | tr -d '?'`
+ln -sf  `echo -e $impala_path'/hbase/lib/hbase-protocol.jar /usr/lib/impala/lib/hbase-protocol.jar' | tr -d '\r' | tr -d '?'`
+yes | cp -rf  `echo -e $impala_path'/hbase/bin/hbase /usr/bin/' | tr -d '\r' | tr -d '?'`
 #add java-home
 JAVA_HOME='/usr/jdk64/'`ls /usr/jdk64 | xargs echo`
 EXPORT_JAVA_HOME='export JAVA_HOME='$JAVA_HOME
