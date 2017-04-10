@@ -76,7 +76,8 @@ restart hadoop and restart impala
 #NOTICE
 - make sure your hive server normally
 - hdfs and hive conf file is sync to /etc/impala/conf
-Some error note:
+#Some error note:
+- NoSuchMethodError:setCaching
 ![Image](../master/screenshots/impala-error.jpg?raw=true)
 Impala rely on Cloudrea Hbase Jar ,please use relevant jar.
 
