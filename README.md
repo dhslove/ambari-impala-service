@@ -83,5 +83,7 @@ restart hadoop and restart impala
 Impala rely on Cloudrea Hbase Jar ,please use relevant jar.
 
 #MPACK
+```
 ambari-server install-mpack --mpack=ambari-impala-mpack-2.6.0-0816.tar.gz -v
 ambari-server restart
+```
