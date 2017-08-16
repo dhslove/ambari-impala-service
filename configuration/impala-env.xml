@@ -30,7 +30,7 @@
 
     <property>
         <name>impala_group</name>
-        <value>impala</value>
+        <value>hadoop</value>
         <property-type>GROUP</property-type>
         <description>impala group</description>
     </property>
