@@ -4,12 +4,18 @@
 - Impala 2.6 +
 - Hadoop 2.6 +
 
-##To download the Impala service folder, run below    
-
+##install Impala two ways:
+##1. To download the Impala service folder, run below    
 
 ```
 VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
 sudo git clone https://github.com/cas-bigdatalab/ambari-impala-service.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/IMPALA        
+```
+
+#2. MPACK 
+```
+ambari-server install-mpack --mpack=ambari-impala-mpack-2.6.0-0816.tar.gz -v
+ambari-server restart
 ```
 
 ##impala repo
@@ -21,6 +27,7 @@ baseurl=https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/5/
 gpgkey =https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera    
 gpgcheck = 1
 ```
+
 
 ##Restart Ambari
 \#sandbox  
@@ -81,9 +88,3 @@ restart hadoop and restart impala
 - NoSuchMethodError:setCaching
 ![Image](../master/screenshots/impala-error.jpg?raw=true)
 Impala rely on Cloudrea Hbase Jar ,please use relevant jar.
-
-#MPACK
-```
-ambari-server install-mpack --mpack=ambari-impala-mpack-2.6.0-0816.tar.gz -v
-ambari-server restart
-```
