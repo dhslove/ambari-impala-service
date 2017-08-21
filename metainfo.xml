@@ -45,10 +45,14 @@
                 </component>
             </components>
 
+            <requiredServices>
+              <service>HDFS</service>
+              <service>HIVE</service>
+            </requiredServices>
 
-      	    <configuration-dependencies>
-				<config-type>impala-ambari-config</config-type>      	   
-      	    </configuration-dependencies>
+            <configuration-dependencies>
+              <config-type>impala-env</config-type>
+            </configuration-dependencies>
         </service>
     </services>
 </metainfo>

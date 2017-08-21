@@ -17,7 +17,7 @@
                   "access": "r"
                 },
                 "group": {
-                  "name": "${impala-env/user_group}",
+                  "name": "${impala-env/impala_group}",
                   "access": ""
                 },
                 "configuration": "impala-env/impala_keytab"
@@ -37,7 +37,7 @@
                   "access": "r"
                 },
                 "group": {
-                  "name": "${impala-env/user_group}",
+                  "name": "${impala-env/impala_group}",
                   "access": ""
                 },
                 "configuration": "impala-env/http_keytab"
