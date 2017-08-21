@@ -5,7 +5,7 @@ An Ambari Service for Impala
 - Impala 2.6 +
 - Hadoop 2.6 +
 
-## install Impala two ways:
+## Install Impala two ways:
 
 ### 1. To download the Impala service folder, run below    
 
@@ -17,7 +17,6 @@ sudo git clone https://github.com/cas-bigdatalab/ambari-impala-service.git /var/
 ### 2. MPACK 
 ```
 ambari-server install-mpack --mpack=ambari-impala-mpack-2.6.0-0816.tar.gz -v
-ambari-server restart
 ```
 
 ## impala repo
