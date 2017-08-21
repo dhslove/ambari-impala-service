@@ -5,7 +5,7 @@
 - Hadoop 2.6 +
 
 ##install Impala two ways:
-##1. To download the Impala service folder, run below    
+#1. To download the Impala service folder, run below    
 
 ```
 VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
