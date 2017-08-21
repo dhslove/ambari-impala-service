@@ -1,26 +1,26 @@
 An Ambari Service for Impala
 ====
 
-# Support Version
+## Support Version
 - Impala 2.6 +
 - Hadoop 2.6 +
 
-# install Impala two ways:
+## install Impala two ways:
 
-## 1. To download the Impala service folder, run below    
+### 1. To download the Impala service folder, run below    
 
 ```
 VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
 sudo git clone https://github.com/cas-bigdatalab/ambari-impala-service.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/IMPALA        
 ```
 
-## 2. MPACK 
+### 2. MPACK 
 ```
 ambari-server install-mpack --mpack=ambari-impala-mpack-2.6.0-0816.tar.gz -v
 ambari-server restart
 ```
 
-##impala repo
+## impala repo
 ```
 [cloudera-cdh5]
 # Packages for Cloudera's Distribution for Hadoop, Version 5, on RedHat	or CentOS 6 x86_64
@@ -31,7 +31,7 @@ gpgcheck = 1
 ```
 
 
-##Restart Ambari
+## Restart Ambari
 \#sandbox  
 service ambari restart
 
@@ -39,7 +39,7 @@ service ambari restart
 sudo service ambari-server restart
 
 
-##HDFS config
+## HDFS config
 we need add below config to /etc/hadoop/conf/core-site.xml
 ```
 <property>
@@ -79,14 +79,14 @@ add config info through webui
 
 restart hadoop and restart impala
 
-#SUMMARY
+## SUMMARY
 ![Image](../master/screenshots/summary.png?raw=true)
 
-#NOTICE
+## NOTICE
 - make sure your hive server normally
 - hdfs and hive conf file is sync to /etc/impala/conf
 
-#Some error note:
+## Some error note:
 - NoSuchMethodError:setCaching
 ![Image](../master/screenshots/impala-error.jpg?raw=true)
 Impala rely on Cloudrea Hbase Jar ,please use relevant jar.
