@@ -35,7 +35,7 @@ class ImpalaBase(Script):
              content=Template('init_lib.sh.j2',datalakeJar=datalakeJar), mode=0o700)
         Execute(format("bash {tmp_dir}/impala_init_lib.sh"))
         File("/etc/default/bigtop-utils",
-             content="export JAVA_HOME=/usr/local/jdk")
+             content="export JAVA_HOME='/usr/jdk64/'`ls /usr/jdk64 | xargs echo`")
 
     def configureImpala(self, env):
         import params
