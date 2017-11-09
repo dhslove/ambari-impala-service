@@ -21,6 +21,7 @@ ambari-server install-mpack --mpack=ambari-impala-mpack-2.6.0-0816.tar.gz -v
 
 ## local repository
 download software from https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/5/
+
 software list as below:
 ```
 avro-doc-1.7.6+cdh5.8.0+112-1.cdh5.8.0.p0.74.el7.noarch.rpm
