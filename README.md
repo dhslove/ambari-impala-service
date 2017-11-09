@@ -19,22 +19,48 @@ sudo git clone https://github.com/cas-bigdatalab/ambari-impala-service.git /var/
 ambari-server install-mpack --mpack=ambari-impala-mpack-2.6.0-0816.tar.gz -v
 ```
 
-## impala repo
+## local repository
+download software from https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/5/
+software list as below:
 ```
-[cloudera-cdh5]
-# Packages for Cloudera's Distribution for Hadoop, Version 5, on RedHat	or CentOS 6 x86_64
-name=Cloudera's Distribution for Hadoop, Version 5
-baseurl=https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/5/
-gpgkey =https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/RPM-GPG-KEY-cloudera    
-gpgcheck = 1
+avro-doc-1.7.6+cdh5.8.0+112-1.cdh5.8.0.p0.74.el7.noarch.rpm
+avro-libs-1.7.6+cdh5.8.0+112-1.cdh5.8.0.p0.74.el7.noarch.rpm
+avro-tools-1.7.6+cdh5.8.0+112-1.cdh5.8.0.p0.74.el7.noarch.rpm
+bigtop-jsvc-0.6.0+cdh5.8.0+847-1.cdh5.8.0.p0.74.el7.x86_64.rpm
+bigtop-jsvc-debuginfo-0.6.0+cdh5.8.0+847-1.cdh5.8.0.p0.74.el7.x86_64.rpm
+bigtop-utils-0.7.0+cdh5.8.0+0-1.cdh5.8.0.p0.72.el7.noarch.rpm
+hbase-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el7.x86_64.rpm
+hbase-doc-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el7.x86_64.rpm
+hbase-master-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el7.x86_64.rpm
+hbase-regionserver-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el7.x86_64.rpm
+hbase-rest-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el7.x86_64.rpm
+hbase-thrift-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el7.x86_64.rpm
+hive-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+hive-hbase-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+hive-hcatalog-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+hive-jdbc-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+hive-metastore-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+hive-server-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+hive-server2-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+hive-webhcat-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+hive-webhcat-server-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el7.noarch.rpm
+impala-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el7.x86_64.rpm
+impala-catalog-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el7.x86_64.rpm
+impala-debuginfo-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el7.x86_64.rpm
+impala-server-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el7.x86_64.rpm
+impala-shell-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el7.x86_64.rpm
+impala-state-store-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el7.x86_64.rpm
+impala-udf-devel-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el7.x86_64.rpm
+parquet-1.5.0+cdh5.8.0+174-1.cdh5.8.0.p0.71.el7.noarch.rpm
+parquet-format-2.1.0+cdh5.8.0+12-1.cdh5.8.0.p0.70.el7.noarch.rpm
+sentry-1.5.1+cdh5.8.0+244-1.cdh5.8.0.p0.83.el7.noarch.rpm
+sentry-hdfs-plugin-1.5.1+cdh5.8.0+244-1.cdh5.8.0.p0.83.el7.noarch.rpm
+sentry-store-1.5.1+cdh5.8.0+244-1.cdh5.8.0.p0.83.el7.noarch.rpm
+solr-4.10.3+cdh5.8.0+423-1.cdh5.8.0.p0.79.el7.noarch.rpm
+solr-crunch-1.0.0+cdh5.8.0+0-1.cdh5.8.0.p0.75.el7.noarch.rpm
 ```
 
-
-## Restart Ambari
-\#sandbox  
-service ambari restart
-
-\#non sandbox  
+## Restart Ambari  
 sudo service ambari-server restart
 
 
