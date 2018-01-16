@@ -22,7 +22,7 @@ impala_log_file = os.path.join(impala_log_dir,'impala-setup.log')
 impala_catalog_host = config['clusterHostInfo']['impala_catalog_service_hosts'][0]
 impala_state_store_host = config['clusterHostInfo']['impala_state_store_hosts'][0]
 
-current_host_name = socket.gethostname()
+current_host_name = socket.getfqdn()
 
 security_enabled = config['configurations']['cluster-env']['security_enabled']
 
