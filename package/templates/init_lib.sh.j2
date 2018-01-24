@@ -1,4 +1,5 @@
-impala_path='{{stack_root}}/{{stack_version_buildnum}}'
+version=`hdp-select status hadoop-client | sed 's/hadoop-client - \(.*\)/\1/' | tr -d '\r'`
+impala_path='/usr/hdp/'${version}
 ln -sf  `echo -e $impala_path'/hadoop/hadoop-common.jar /usr/lib/hadoop/hadoop-common.jar' | tr -d '\r' | tr -d '?'`
 ln -sf  `echo -e $impala_path'/hadoop/hadoop-annotations.jar /usr/lib/impala/lib/hadoop-annotations.jar' | tr -d '\r' | tr -d '?'`
 ln -sf  `echo -e $impala_path'/hadoop/hadoop-auth.jar /usr/lib/impala/lib/hadoop-auth.jar' | tr -d '\r' | tr -d '?'`
