@@ -17,7 +17,7 @@ class ImpalaCatalog(ImpalaBase):
 
     # Call start.sh to start the service
     def start(self, env):
-        self.configure(env)
+        # self.configure(env)
         cmd = 'service impala-catalog start'
         Execute('echo "Running cmd: ' + cmd + '"')
         Execute(cmd)
