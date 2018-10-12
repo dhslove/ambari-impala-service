@@ -5,6 +5,42 @@ An Ambari Service for Impala
 - Impala 2.6 +
 - Hadoop 2.6 +
 
+## Create MPACK gzip file
+
+The files and directories structure of the Management Pack for the Impala service is as follows.
+
+```
+/ -+--- /mpack.json
+   |
+   +--- /addon-services 
+   |    +--- IMPALA 
+   |         +--- 2.12.0 
+   |              +--- metainfo.xml
+   |
+   +--- /common-services
+        +--- /IMPALA
+             +--- /2.12.0
+                  +--- metainfo.xml
+                  +--- alerts.json
+                  +--- kerberos.json
+                  +--- /configuration
+                  |    +--- impala-env.xml
+                  +--- /package
+                       +--- /files
+                       |    +--- hadoop-azure-datalake-2.6.0-cdh5.12.0.jar
+                       +--- /scripts
+                       |    +--- impala_base.py
+                       |    +--- impala-catalog.py
+                       |    +--- impala-daemon.py
+                       |    +--- impala-state-store.py
+                       |    +--- params.py
+                       +--- /templates 
+                            +--- impala.j2
+                            +--- init_lib.sh.j2
+
+```
+Refer to the above structure and create ambari-impala-mpack-2.12.0-1012.tar.gz file using gzip.
+
 ## Install Impala two ways:
 
 ### 1. To download the Impala service folder, run below    
@@ -16,7 +52,7 @@ sudo git clone https://github.com/cas-bigdatalab/ambari-impala-service.git /var/
 
 ### 2. MPACK 
 ```
-ambari-server install-mpack --mpack=ambari-impala-mpack-2.6.0-0816.tar.gz -v
+ambari-server install-mpack --mpack=ambari-impala-mpack-2.12.0-1012.tar.gz -v
 ```
 
 ## local repository
