@@ -39,6 +39,6 @@ ln -sf  `echo -e '/usr/lib/hbase/hbase-common.jar /usr/lib/impala/lib/hbase-comm
 ln -sf  `echo -e '/usr/lib/hbase/hbase-protocol.jar /usr/lib/impala/lib/hbase-protocol.jar' | tr -d '\r' | tr -d '?'`
 ln -sf  `echo -e '/usr/lib/impala/lib/{{datalakeJar}} /usr/lib/impala/lib/hadoop-azure-datalake.jar' | tr -d '\r' | tr -d '?'`
 # add java-home
-# JAVA_HOME='/usr/jdk64/'`ls /usr/jdk64 | xargs echo`
+JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 EXPORT_JAVA_HOME='export JAVA_HOME='$JAVA_HOME
 echo -e $EXPORT_JAVA_HOME |  tr -d '\r' >> /etc/default/bigtop-utils
