@@ -10,11 +10,11 @@ An Ambari Service for Impala
 The files and directories structure of the Management Pack for the Impala service is as follows.
 
 ```
-/ -+--- /mpack.json
+/ -+--- mpack.json
    |
    +--- /addon-services 
-   |    +--- IMPALA 
-   |         +--- 2.12.0 
+   |    +--- /IMPALA 
+   |         +--- /2.12.0 
    |              +--- metainfo.xml
    |
    +--- /common-services
@@ -56,45 +56,80 @@ ambari-server install-mpack --mpack=ambari-impala-mpack-2.12.0-1012.tar.gz -v
 ```
 
 ## local repository
-Make your local repository.Download software from https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/5.8.0/
+Make your local repository.Download software from https://archive.cloudera.com/cdh5/redhat/6/x86_64/cdh/5/
 
 software list as below:
 ```
-avro-doc-1.7.6+cdh5.8.0+112-1.cdh5.8.0.p0.74.el6.noarch.rpm
-avro-libs-1.7.6+cdh5.8.0+112-1.cdh5.8.0.p0.74.el6.noarch.rpm
-avro-tools-1.7.6+cdh5.8.0+112-1.cdh5.8.0.p0.74.el6.noarch.rpm
-bigtop-jsvc-0.6.0+cdh5.8.0+847-1.cdh5.8.0.p0.74.el6.x86_64.rpm
-bigtop-jsvc-debuginfo-0.6.0+cdh5.8.0+847-1.cdh5.8.0.p0.74.el6.x86_64.rpm
-bigtop-utils-0.7.0+cdh5.8.0+0-1.cdh5.8.0.p0.72.el6.noarch.rpm
-hbase-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el6.x86_64.rpm
-hbase-doc-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el6.x86_64.rpm
-hbase-master-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el6.x86_64.rpm
-hbase-regionserver-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el6.x86_64.rpm
-hbase-rest-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el6.x86_64.rpm
-hbase-thrift-1.2.0+cdh5.8.0+160-1.cdh5.8.0.p0.80.el6.x86_64.rpm
-hive-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-hive-hbase-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-hive-hcatalog-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-hive-jdbc-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-hive-metastore-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-hive-server-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-hive-server2-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-hive-webhcat-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-hive-webhcat-server-1.1.0+cdh5.8.0+610-1.cdh5.8.0.p0.77.el6.noarch.rpm
-impala-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el6.x86_64.rpm
-impala-catalog-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el6.x86_64.rpm
-impala-debuginfo-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el6.x86_64.rpm
-impala-server-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el6.x86_64.rpm
-impala-shell-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el6.x86_64.rpm
-impala-state-store-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el6.x86_64.rpm
-impala-udf-devel-2.6.0+cdh5.8.0+0-1.cdh5.8.0.p0.111.el6.x86_64.rpm
-parquet-1.5.0+cdh5.8.0+174-1.cdh5.8.0.p0.71.el6.noarch.rpm
-parquet-format-2.1.0+cdh5.8.0+12-1.cdh5.8.0.p0.70.el6.noarch.rpm
-sentry-1.5.1+cdh5.8.0+244-1.cdh5.8.0.p0.83.el6.noarch.rpm
-sentry-hdfs-plugin-1.5.1+cdh5.8.0+244-1.cdh5.8.0.p0.83.el6.noarch.rpm
-sentry-store-1.5.1+cdh5.8.0+244-1.cdh5.8.0.p0.83.el6.noarch.rpm
-solr-4.10.3+cdh5.8.0+423-1.cdh5.8.0.p0.79.el6.noarch.rpm
-solr-crunch-1.0.0+cdh5.8.0+0-1.cdh5.8.0.p0.75.el6.noarch.rpm
+bigtop-jsvc-0.6.0+cdh5.15.1+927-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+bigtop-jsvc-debuginfo-0.6.0+cdh5.15.1+927-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-0.20-conf-pseudo-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-0.20-mapreduce-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-0.20-mapreduce-jobtracker-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-0.20-mapreduce-jobtrackerha-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-0.20-mapreduce-tasktracker-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-0.20-mapreduce-zkfc-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-client-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-conf-pseudo-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-debuginfo-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-doc-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-hdfs-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-hdfs-datanode-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-hdfs-fuse-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-hdfs-journalnode-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-hdfs-namenode-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-hdfs-nfs3-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-hdfs-secondarynamenode-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-hdfs-zkfc-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-httpfs-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-kms-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-kms-server-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-libhdfs-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-libhdfs-devel-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-mapreduce-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-mapreduce-historyserver-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-yarn-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-yarn-nodemanager-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-yarn-proxyserver-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hadoop-yarn-resourcemanager-2.6.0+cdh5.15.1+2822-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hbase-1.2.0+cdh5.15.1+470-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hbase-doc-1.2.0+cdh5.15.1+470-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hbase-master-1.2.0+cdh5.15.1+470-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hbase-regionserver-1.2.0+cdh5.15.1+470-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hbase-rest-1.2.0+cdh5.15.1+470-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hbase-thrift-1.2.0+cdh5.15.1+470-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-beeswax-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-common-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-doc-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-hbase-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-impala-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-pig-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-plugins-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-rdbms-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-search-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-security-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-server-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-spark-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-sqoop-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+hue-zookeeper-3.9.0+cdh5.15.1+8420-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+impala-2.12.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+impala-catalog-2.12.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+impala-debuginfo-2.12.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+impala-server-2.12.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+impala-shell-2.12.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+impala-state-store-2.12.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+impala-udf-devel-2.12.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+kudu-1.7.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+kudu-client-devel-1.7.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+kudu-client0-1.7.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+kudu-debuginfo-1.7.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+kudu-master-1.7.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+kudu-tserver-1.7.0+cdh5.15.1+0-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+zookeeper-3.4.5+cdh5.15.1+149-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+zookeeper-debuginfo-3.4.5+cdh5.15.1+149-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+zookeeper-native-3.4.5+cdh5.15.1+149-1.cdh5.15.1.p0.4.el6.x86_64.rpm
+zookeeper-server-3.4.5+cdh5.15.1+149-1.cdh5.15.1.p0.4.el6.x86_64.rpm
 ```
 
 ## Restart Ambari  
